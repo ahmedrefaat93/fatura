@@ -1,0 +1,3727 @@
+{
+	"info": {
+		"_postman_id": "828b8304-59d4-40b1-8794-9e6c2dd2f473",
+		"name": "Fatura",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ahmed refaat\",\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"12345678\",\r\n    \"password_confirmation\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/auth/register",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				},
+				"description": "* description: register api\n     ***********************************************************\n     * endpoint: api/auth/register\n     * method type: Post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type  => application/json\n     * Accept        => application/json\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n     * 'name'                  => 'string'  required\n     * 'email'                 => 'string'  required\n     * 'password'              => 'string'  required\n     * 'password_confirmation' => 'string'  required\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 400 => validation error\n     * 401 => Unauthorized\n     * 201 => register Successfully\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "Bad Request Register User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/auth/register",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 20:03:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The name field is required.\"\n}"
+				},
+				{
+					"name": "Succesfully Register User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"ahmed refaat\",\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"12345678\",\r\n    \"password_confirmation\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/auth/register",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 20:05:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "207"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"ahmed refaat\",\n        \"email\": \"ahmed@gmail.com\",\n        \"updated_at\": \"2021-11-09T20:05:45.000000Z\",\n        \"created_at\": \"2021-11-09T20:05:45.000000Z\",\n        \"id\": 1\n    },\n    \"message\": \"User successfully registered\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"123456\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/auth/login",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "* description: login api\n     ***********************************************************\n     * endpoint: api/auth/login\n     * method type: Post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type  => application/json\n     * Accept        => application/json\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n     * 'email'     => 'string'  required\n     * 'password'  => 'string'  required\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 422 => validation error\n     * 401 => Unauthorized\n     * 200 => logged Successfully\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "UnPreprocessable Login User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/auth/login",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 20:07:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The email field is required.\"\n}"
+				},
+				{
+					"name": "UnAuthorize Login User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"123456\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/auth/login",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 20:10:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Unauthorized\"\n}"
+				},
+				{
+					"name": "Sucessfully Login User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/auth/login",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 20:13:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "613"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ4ODgyNSwiZXhwIjoxNjM2NDkyNDI1LCJuYmYiOjE2MzY0ODg4MjUsImp0aSI6Ik1ITXB5YTE0cnFCbTBpYUMiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.hxHa4RnBEyVbxQCYGcEzkiStL05OC4Ued9CXZzJkOVo\",\n        \"token_type\": \"bearer\",\n        \"expires_in\": 3600,\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"ahmed refaat\",\n            \"email\": \"ahmed@gmail.com\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2021-11-09T20:05:45.000000Z\",\n            \"updated_at\": \"2021-11-09T20:05:45.000000Z\"\n        }\n    },\n    \"message\": \"Logged Successfully\"\n}"
+				},
+				{
+					"name": "Login As Super Admin User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@admin.com\",\r\n    \"password\":\"admin1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/auth/login",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:19:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "575"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI\",\n        \"token_type\": \"bearer\",\n        \"expires_in\": 3600,\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"admin\",\n            \"email\": \"admin@admin.com\",\n            \"email_verified_at\": null,\n            \"created_at\": null,\n            \"updated_at\": null,\n            \"is_super_admin\": 1\n        }\n    },\n    \"message\": \"Logged Successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Logout User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseUrl}}api/auth/logout",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				},
+				"description": "* description: logout api\n     ***********************************************************\n     * endpoint: api/auth/logout\n     * method type: Post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token'\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 200 => logout Successfully\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "Unauthorize Logout User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/auth/logout",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 20:30:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Successfully Logout User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ4ODgyNSwiZXhwIjoxNjM2NDkyNDI1LCJuYmYiOjE2MzY0ODg4MjUsImp0aSI6Ik1ITXB5YTE0cnFCbTBpYUMiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.hxHa4RnBEyVbxQCYGcEzkiStL05OC4Ued9CXZzJkOVo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/auth/logout",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 20:21:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [],\n    \"message\": \"User successfully signed out\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create New Permission",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"edit-product\"\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/permission/create",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"permission",
+						"create"
+					]
+				},
+				"description": "* description: create new permission api\n     ***********************************************************\n     * endpoint: api/permission/create\n     * method type: post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token' for super_admin\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n     * 'name' => 'string' required\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 400 => validation Error\n     * 201 => created Successfully\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "Unauthenticated Create New Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ4ODgyNSwiZXhwIjoxNjM2NDkyNDI1LCJuYmYiOjE2MzY0ODg4MjUsImp0aSI6Ik1ITXB5YTE0cnFCbTBpYUMiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.hxHa4RnBEyVbxQCYGcEzkiStL05OC4Ued9CXZzJkOVo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/permission/create",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permission",
+								"create"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:15:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Bad Request Create New Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/permission/create",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permission",
+								"create"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:39:37 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The name field is required.\"\n}"
+				},
+				{
+					"name": "Successfully Create New Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"edit-product\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/permission/create",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permission",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:23:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "203"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"edit-product\",\n        \"guard_name\": \"api\",\n        \"updated_at\": \"2021-11-09T21:23:43.000000Z\",\n        \"created_at\": \"2021-11-09T21:23:43.000000Z\",\n        \"id\": 2\n    },\n    \"message\": \"Permission Created Successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Show All Permissions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null,
+				"description": "* description: list all permissions api\n     ***********************************************************\n     * endpoint: api/permissions\n     * method type: get\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token' for super_admin\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 200 => returned Successfully\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "UnAuthorize Show All Permissions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/permissions",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permissions"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:30:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Show All Permissions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/permissions",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permissions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:30:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "586"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"create-product\",\n            \"guard_name\": \"api\",\n            \"created_at\": \"2021-11-09T21:22:05.000000Z\",\n            \"updated_at\": \"2021-11-09T21:22:05.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"edit-product\",\n            \"guard_name\": \"api\",\n            \"created_at\": \"2021-11-09T21:23:43.000000Z\",\n            \"updated_at\": \"2021-11-09T21:23:43.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"delete-product\",\n            \"guard_name\": \"api\",\n            \"created_at\": \"2021-11-09T21:24:42.000000Z\",\n            \"updated_at\": \"2021-11-09T21:24:42.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"view-product\",\n            \"guard_name\": \"api\",\n            \"created_at\": \"2021-11-09T21:24:49.000000Z\",\n            \"updated_at\": \"2021-11-09T21:24:49.000000Z\"\n        }\n    ],\n    \"message\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create New Role",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"moderator\",\r\n    \"permissions\":[1,3]\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/role/create",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"role",
+						"create"
+					]
+				},
+				"description": "* description: create new role api\n     ***********************************************************\n     * endpoint: api/role/create\n     * method type: post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token' for super_admin\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n     * 'name'        => 'string' required\n     * 'permissions' => 'array of permissions ids' required\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 400 => validation Error\n     * 201 => created Successfully\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "Unathorized Create New Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/role/create",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"role",
+								"create"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:41:34 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Bad Request Create New Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/role/create",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"role",
+								"create"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:42:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The name field is required.\"\n}"
+				},
+				{
+					"name": "Successfully Create New Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"moderator\",\r\n    \"permissions\":[1,3]\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/role/create",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"role",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:44:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "564"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"moderator\",\n        \"guard_name\": \"api\",\n        \"updated_at\": \"2021-11-09T21:44:03.000000Z\",\n        \"created_at\": \"2021-11-09T21:44:03.000000Z\",\n        \"id\": 1,\n        \"permissions\": [\n            {\n                \"id\": 1,\n                \"name\": \"create-product\",\n                \"guard_name\": \"api\",\n                \"created_at\": \"2021-11-09T21:22:05.000000Z\",\n                \"updated_at\": \"2021-11-09T21:22:05.000000Z\",\n                \"pivot\": {\n                    \"role_id\": 1,\n                    \"permission_id\": 1\n                }\n            },\n            {\n                \"id\": 3,\n                \"name\": \"delete-product\",\n                \"guard_name\": \"api\",\n                \"created_at\": \"2021-11-09T21:24:42.000000Z\",\n                \"updated_at\": \"2021-11-09T21:24:42.000000Z\",\n                \"pivot\": {\n                    \"role_id\": 1,\n                    \"permission_id\": 3\n                }\n            }\n        ]\n    },\n    \"message\": \"Role Create Sucessfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Show All Roles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null,
+				"description": "* description: list all roles api\n     ***********************************************************\n     * endpoint: api/roles\n     * method type: get\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token' for super_admin\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 200 => returned Successfully\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "Unathorize Show All Roles",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/roles",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:46:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Show All Roles",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/roles",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 21:48:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "434"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"moderator\",\n            \"guard_name\": \"api\",\n            \"created_at\": \"2021-11-09T21:44:03.000000Z\",\n            \"updated_at\": \"2021-11-09T21:44:03.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"CreateProd\",\n            \"guard_name\": \"api\",\n            \"created_at\": \"2021-11-09T21:47:37.000000Z\",\n            \"updated_at\": \"2021-11-09T21:47:37.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Admin\",\n            \"guard_name\": \"api\",\n            \"created_at\": \"2021-11-09T21:48:14.000000Z\",\n            \"updated_at\": \"2021-11-09T21:48:14.000000Z\"\n        }\n    ],\n    \"message\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Assign Permissions To User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"permissions\":[1,3]\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/permission/assign",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"permission",
+						"assign"
+					]
+				},
+				"description": "* description: assign permissions for user api\n     ***********************************************************\n     * endpoint: api/permission/assign\n     * method type: post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token' for super_admin\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n     * 'user_id'    => 'number'  required\n     * 'permissions => 'array of permission ids' required\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 400 => validation Error\n     * 200 => assigned Successfully\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "Unauthorize Assign Permissions To User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/permission/assign",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permission",
+								"assign"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 22:01:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Bad Request Assign Permissions To User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/permission/assign",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permission",
+								"assign"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 22:02:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The user id field is required.\"\n}"
+				},
+				{
+					"name": "Sucessfully Assign Permissions To User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":1,\r\n    \"permissions\":[1,3]\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/permission/assign",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permission",
+								"assign"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 22:09:10 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "702"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"ahmed refaat\",\n        \"email\": \"ahmed@gmail.com\",\n        \"email_verified_at\": null,\n        \"created_at\": \"2021-11-09T20:05:45.000000Z\",\n        \"updated_at\": \"2021-11-09T20:05:45.000000Z\",\n        \"is_super_admin\": 0,\n        \"permissions\": [\n            {\n                \"id\": 1,\n                \"name\": \"create-product\",\n                \"guard_name\": \"api\",\n                \"created_at\": \"2021-11-09T21:22:05.000000Z\",\n                \"updated_at\": \"2021-11-09T21:22:05.000000Z\",\n                \"pivot\": {\n                    \"model_id\": 1,\n                    \"permission_id\": 1,\n                    \"model_type\": \"App\\\\Models\\\\User\"\n                }\n            },\n            {\n                \"id\": 3,\n                \"name\": \"delete-product\",\n                \"guard_name\": \"api\",\n                \"created_at\": \"2021-11-09T21:24:42.000000Z\",\n                \"updated_at\": \"2021-11-09T21:24:42.000000Z\",\n                \"pivot\": {\n                    \"model_id\": 1,\n                    \"permission_id\": 3,\n                    \"model_type\": \"App\\\\Models\\\\User\"\n                }\n            }\n        ]\n    },\n    \"message\": \"Assign Permissions to User Successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Assign Roles to User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"roles\":[1,3]\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/role/assign",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"role",
+						"assign"
+					]
+				},
+				"description": "* description: assign roles for user api\n     ***********************************************************\n     * endpoint: api/role/assign\n     * method type: post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token' for super_admin\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n     * 'user_id'    => 'number'  required\n     * 'roles => 'array of roles ids' required\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 400 => validation Error\n     * 200 => assigned Successfully\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "Unauthorize Assign Roles to User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/role/assign",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"role",
+								"assign"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 22:10:39 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Bad Request Assign Roles to User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/role/assign",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"role",
+								"assign"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 22:11:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The user id field is required.\"\n}"
+				},
+				{
+					"name": "Successfully Assign Roles to User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5Mjc2NCwiZXhwIjoxNjM2NDk2MzY0LCJuYmYiOjE2MzY0OTI3NjQsImp0aSI6ImNIWVAxNkU3cFl1dEdWOTIiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kOUU5gJZl0X5EkHJHePQc34C7VG7qDjJ0oFFg0ewKRI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":1,\r\n    \"roles\":[1,3]\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/role/assign",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"role",
+								"assign"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 22:12:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "664"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"ahmed refaat\",\n        \"email\": \"ahmed@gmail.com\",\n        \"email_verified_at\": null,\n        \"created_at\": \"2021-11-09T20:05:45.000000Z\",\n        \"updated_at\": \"2021-11-09T20:05:45.000000Z\",\n        \"is_super_admin\": 0,\n        \"roles\": [\n            {\n                \"id\": 1,\n                \"name\": \"moderator\",\n                \"guard_name\": \"api\",\n                \"created_at\": \"2021-11-09T21:44:03.000000Z\",\n                \"updated_at\": \"2021-11-09T21:44:03.000000Z\",\n                \"pivot\": {\n                    \"model_id\": 1,\n                    \"role_id\": 1,\n                    \"model_type\": \"App\\\\Models\\\\User\"\n                }\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Admin\",\n                \"guard_name\": \"api\",\n                \"created_at\": \"2021-11-09T21:48:14.000000Z\",\n                \"updated_at\": \"2021-11-09T21:48:14.000000Z\",\n                \"pivot\": {\n                    \"model_id\": 1,\n                    \"role_id\": 3,\n                    \"model_type\": \"App\\\\Models\\\\User\"\n                }\n            }\n        ]\n    },\n    \"message\": \"Assign roles to User Successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Check User Has Permission",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5ODc2MSwiZXhwIjoxNjM2NTAyMzYxLCJuYmYiOjE2MzY0OTg3NjEsImp0aSI6IkRHWVA2VTZBTEhDY3V1SkwiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.TEkOAVlB5WGzeK6QUObDz_44VxM-YbOFwFa-dfdBBbQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"permission\":1\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/permission/can",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"permission",
+						"can"
+					]
+				},
+				"description": "* description: super admin check a permission for user api\n     ***********************************************************\n     * endpoint: api/permission/can\n     * method type: post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token' for super_admin\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n     * 'user_id'   => 'number'  required\n     * 'permission => 'permission id number'  required\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 400 => validation Error\n     * 403 => forbidden this user not has this permission\n     * 200 => user his this permission\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "UnAuthorzied Check User Has Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/permission/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permission",
+								"can"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 22:57:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Bad Request Check User Has Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5ODc2MSwiZXhwIjoxNjM2NTAyMzYxLCJuYmYiOjE2MzY0OTg3NjEsImp0aSI6IkRHWVA2VTZBTEhDY3V1SkwiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.TEkOAVlB5WGzeK6QUObDz_44VxM-YbOFwFa-dfdBBbQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/permission/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permission",
+								"can"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:00:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The user id field is required.\"\n}"
+				},
+				{
+					"name": "ForBidden Check User Has Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5ODc2MSwiZXhwIjoxNjM2NTAyMzYxLCJuYmYiOjE2MzY0OTg3NjEsImp0aSI6IkRHWVA2VTZBTEhDY3V1SkwiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.TEkOAVlB5WGzeK6QUObDz_44VxM-YbOFwFa-dfdBBbQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":1,\r\n    \"permission\":2\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/permission/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permission",
+								"can"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:15:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"User Not has this permission\"\n}"
+				},
+				{
+					"name": "User Has This Permission Check User Has Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5ODc2MSwiZXhwIjoxNjM2NTAyMzYxLCJuYmYiOjE2MzY0OTg3NjEsImp0aSI6IkRHWVA2VTZBTEhDY3V1SkwiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.TEkOAVlB5WGzeK6QUObDz_44VxM-YbOFwFa-dfdBBbQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":1,\r\n    \"permission\":1\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/permission/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"permission",
+								"can"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:16:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [],\n    \"message\": \"User has this permission\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Check Authed User Has Permission",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5ODc2MSwiZXhwIjoxNjM2NTAyMzYxLCJuYmYiOjE2MzY0OTg3NjEsImp0aSI6IkRHWVA2VTZBTEhDY3V1SkwiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.TEkOAVlB5WGzeK6QUObDz_44VxM-YbOFwFa-dfdBBbQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"permission\":1\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/permission/can",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"permission",
+						"can"
+					]
+				},
+				"description": "* description:  check a permission for logged user api\n     ***********************************************************\n     * endpoint: api/authed/permission/can\n     * method type: post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token' for logged user\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n     * 'permission => 'permission id number'  required\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 400 => validation Error\n     * 403 => forbidden logged user not has this permission\n     * 200 => logged user his this permission\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "Unathorized Check Authed User Has Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5OTk0NiwiZXhwIjoxNjM2NTAzNTQ2LCJuYmYiOjE2MzY0OTk5NDYsImp0aSI6IlppQnlpTU9yczhjOWRBSEsiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.-20haoltDUvYK3dALvUwUuKYSLIWbTvohpI7Ax3hcBE",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/authed/permission/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"authed",
+								"permission",
+								"can"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:19:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Bad Request Check Authed User Has Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5OTk0NiwiZXhwIjoxNjM2NTAzNTQ2LCJuYmYiOjE2MzY0OTk5NDYsImp0aSI6IlppQnlpTU9yczhjOWRBSEsiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.-20haoltDUvYK3dALvUwUuKYSLIWbTvohpI7Ax3hcBE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/authed/permission/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"authed",
+								"permission",
+								"can"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:19:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The permission field is required.\"\n}"
+				},
+				{
+					"name": "ForBidden Check Authed User Has Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5OTk0NiwiZXhwIjoxNjM2NTAzNTQ2LCJuYmYiOjE2MzY0OTk5NDYsImp0aSI6IlppQnlpTU9yczhjOWRBSEsiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.-20haoltDUvYK3dALvUwUuKYSLIWbTvohpI7Ax3hcBE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"permission\":2\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/authed/permission/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"authed",
+								"permission",
+								"can"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:20:32 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=99"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"User Not has this permission\"\n}"
+				},
+				{
+					"name": "User Has This Permission Check Authed User Has Permission",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjQ5OTk0NiwiZXhwIjoxNjM2NTAzNTQ2LCJuYmYiOjE2MzY0OTk5NDYsImp0aSI6IlppQnlpTU9yczhjOWRBSEsiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.-20haoltDUvYK3dALvUwUuKYSLIWbTvohpI7Ax3hcBE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"permission\":1\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/authed/permission/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"authed",
+								"permission",
+								"can"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:20:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [],\n    \"message\": \"User has this permission\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Check User Has Role",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjUwMDE0MCwiZXhwIjoxNjM2NTAzNzQwLCJuYmYiOjE2MzY1MDAxNDAsImp0aSI6Im0zeWRnZ2hJY1UxOXRvZmQiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.XjMZlXOv27ByHrzoDJLfqpdKj43s89DBgQNgpn3Ugd8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\":1\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/role/can",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"role",
+						"can"
+					]
+				},
+				"description": "* description: super admin check a role for user api\n     ***********************************************************\n     * endpoint: api/role/can\n     * method type: post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token' for super_admin\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n     * 'user_id'   => 'number'  required\n     * 'role => 'role id number'  required\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 400 => validation Error\n     * 403 => forbidden this user not has this role\n     * 200 => user his this role\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "Unauthorize Check User Has Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/role/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"role",
+								"can"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:23:40 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Bad Request Check User Has Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjUwMDE0MCwiZXhwIjoxNjM2NTAzNzQwLCJuYmYiOjE2MzY1MDAxNDAsImp0aSI6Im0zeWRnZ2hJY1UxOXRvZmQiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.XjMZlXOv27ByHrzoDJLfqpdKj43s89DBgQNgpn3Ugd8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":1\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/role/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"role",
+								"can"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:25:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The user id field is required.\"\n}"
+				},
+				{
+					"name": "Forbidden Check User Has Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjUwMDE0MCwiZXhwIjoxNjM2NTAzNzQwLCJuYmYiOjE2MzY1MDAxNDAsImp0aSI6Im0zeWRnZ2hJY1UxOXRvZmQiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.XjMZlXOv27ByHrzoDJLfqpdKj43s89DBgQNgpn3Ugd8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":1,\r\n    \"role\":2\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/role/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"role",
+								"can"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:25:03 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "55"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"User Not has this role\"\n}"
+				},
+				{
+					"name": "User Has This Role Check User Has Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjUwMDE0MCwiZXhwIjoxNjM2NTAzNzQwLCJuYmYiOjE2MzY1MDAxNDAsImp0aSI6Im0zeWRnZ2hJY1UxOXRvZmQiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.XjMZlXOv27ByHrzoDJLfqpdKj43s89DBgQNgpn3Ugd8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":1,\r\n    \"role\":1\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/role/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"role",
+								"can"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:25:22 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [],\n    \"message\": \"User has this role\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Check Authed User Has Role",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjUwMDQ4NSwiZXhwIjoxNjM2NTA0MDg1LCJuYmYiOjE2MzY1MDA0ODUsImp0aSI6ImRjZVN2Q1dnZ0RmOGxwaUsiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fe9VUsiyDVDVh5NnkV7WnvAbJGB2vSvc9tKW-R1zX58",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\":1\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/authed/role/can",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"authed",
+						"role",
+						"can"
+					]
+				},
+				"description": "* description: check a role for logged user api\n     ***********************************************************\n     * endpoint: api/authed/role/can\n     * method type: post\n     ************************************************************\n     * Headers:\n     ************************************************************\n     * Content-Type   => application/json\n     * Accept         => application/json\n     * Authorization  => Bearer 'token' for logged user\n     *************************************************************\n     ***********************************************************\n     * Inputs\n     ***********************************************************\n     * 'role' => 'role id number'  required\n     ***********************************************************\n     * Response Codes:\n     ***********************************************************\n     * 401 => Unauthorized\n     * 400 => validation Error\n     * 403 => forbidden logged user not has this role\n     * 200 => logged user his this role\n     * 500 => Server Error"
+			},
+			"response": [
+				{
+					"name": "UnAuthorize Check Authed User Has Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/authed/role/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"authed",
+								"role",
+								"can"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:27:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Bad Request Check Authed User Has Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjUwMDQ4NSwiZXhwIjoxNjM2NTA0MDg1LCJuYmYiOjE2MzY1MDA0ODUsImp0aSI6ImRjZVN2Q1dnZ0RmOGxwaUsiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fe9VUsiyDVDVh5NnkV7WnvAbJGB2vSvc9tKW-R1zX58",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}api/authed/role/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"authed",
+								"role",
+								"can"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:28:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The role field is required.\"\n}"
+				},
+				{
+					"name": "ForBidden Check Authed User Has Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjUwMDQ4NSwiZXhwIjoxNjM2NTA0MDg1LCJuYmYiOjE2MzY1MDA0ODUsImp0aSI6ImRjZVN2Q1dnZ0RmOGxwaUsiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fe9VUsiyDVDVh5NnkV7WnvAbJGB2vSvc9tKW-R1zX58",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":2\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/authed/role/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"authed",
+								"role",
+								"can"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:29:17 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"User Not has this role\"\n}"
+				},
+				{
+					"name": "User Has This Role Check Authed User Has Role",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9mYXR1cmEudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzNjUwMDQ4NSwiZXhwIjoxNjM2NTA0MDg1LCJuYmYiOjE2MzY1MDA0ODUsImp0aSI6ImRjZVN2Q1dnZ0RmOGxwaUsiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fe9VUsiyDVDVh5NnkV7WnvAbJGB2vSvc9tKW-R1zX58",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":1\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/authed/role/can",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"authed",
+								"role",
+								"can"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 09 Nov 2021 23:29:36 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1k PHP/7.3.29"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [],\n    \"message\": \"User has this role\"\n}"
+				}
+			]
+		}
+	]
+}
